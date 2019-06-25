@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps } from '../test/testUtils';
 import Congrats from './Congrats';
 
 const defaultProps = { success: false };
-/*
+/** 
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @function setup
  * @params {object} props - Component props specific to this setup
