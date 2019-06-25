@@ -18,8 +18,8 @@ const GuessWords = ({ guessedWords }) => {
     contents = (
       <div data-test='guessed-words'>
         <h3>Gussed Words</h3>
-        <table>
-          <thead>
+        <table className="table table-sm">
+          <thead className="thead-light">
             <tr>
               <th>Guess</th>
               <th>Matching Letters</th>
