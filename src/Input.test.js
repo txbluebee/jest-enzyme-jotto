@@ -38,9 +38,23 @@ describe('render', () => {
   });
 
   describe('word has been gussed', () => {
-    test('renders component without error', () => {});
-    test('does not rennder input box', () => {});
-    test('does not render submit button', () => {});
+    let wrapper;
+    beforeEach(()=>{
+      const inititalState = { success: true};
+      wrapper = setup(inititalState);
+    });
+    test('renders component without error', () => {
+      const component = findByTestAttr(wrapper, 'component-input');
+      expect(component.length).toBe(1)
+    });
+    test('does not rennder input box', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box');
+      expect(inputBox.length).toBe(0);
+    });
+    test('does not render submit button', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      expect(submitButton.length).toBe(0);
+    });
   });
 });
 
