@@ -13,7 +13,9 @@ import Input from './Input';
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
-  return shallow(<Input store={store} />).dive().dive();
+  return shallow(<Input store={store} />)
+    .dive()
+    .dive();
 };
 
 describe('render', () => {
@@ -39,13 +41,13 @@ describe('render', () => {
 
   describe('word has been gussed', () => {
     let wrapper;
-    beforeEach(()=>{
-      const inititalState = { success: true};
+    beforeEach(() => {
+      const inititalState = { success: true };
       wrapper = setup(inititalState);
     });
     test('renders component without error', () => {
       const component = findByTestAttr(wrapper, 'component-input');
-      expect(component.length).toBe(1)
+      expect(component.length).toBe(1);
     });
     test('does not rennder input box', () => {
       const inputBox = findByTestAttr(wrapper, 'input-box');
@@ -58,4 +60,16 @@ describe('render', () => {
   });
 });
 
-describe('update state', () => {});
+describe('redux props', () => {
+  test('has success piece of state as props', () => {
+    const success = true;
+    const wrapper = setup({ success });
+    const successPorp = wrapper.instance().props.success;
+    expect(successPorp).toBe(success);
+  });
+  test('`guessWord` action creator is a function props', () => {
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+    expect(guessWordProp).toBeInstanceOf(Function);
+  });
+});
