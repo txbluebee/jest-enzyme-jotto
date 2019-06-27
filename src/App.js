@@ -13,7 +13,15 @@ const mapState = ({ success, secretWord, guessedWords }) => ({
   guessedWords
 });
 
-class App extends React.Component {
+export class UnconnectedApp extends React.Component {
+  /**
+   * @method componentDidMount
+   * @returns {undefined}
+   */
+  componentDidMount(){
+    // get the secret word
+    this.props.getSecretWord()
+  }
   render() {
     const { success, guessedWords } = this.props;
     return (
@@ -30,4 +38,4 @@ class App extends React.Component {
 export default connect(
   mapState,
   { getSecretWord }
-)(App);
+)(UnconnectedApp);
