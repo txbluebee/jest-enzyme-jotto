@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { guessWord } from './actions'
+import { guessWord } from './actions';
 
 const mapState = ({ success }) => ({ success });
 
@@ -31,4 +31,7 @@ class Input extends Component {
   }
 }
 
-export default connect(mapState, { guessWord })(Input);
+export default connect(
+  mapState,
+  { guessWord }
+)(Input);
